@@ -5,8 +5,6 @@ parentdir = os.path.dirname(currentdir)
 sys.path.insert(0,parentdir) 
 from r5_parameter_set import R5_paramSet 
 
-r5nd_1kem_0f = R5_paramSet("R5ND_1KEM_0f",1024,1024,128,8,6,4,1,1,1,16,0,0,True)
-
 r5nd_1kem_0e = R5_paramSet("R5ND_1KEM_0e",586,586,146,9,8,4,1,1,1,16,0,0,False)
 # R5ND_1KEM_0e 586 146 1252 -64.136223097 138.116 140.16 131.692 129.560962501
 r5nd_3kem_0e = R5_paramSet("R5ND_3KEM_0e",876,876,217,14,9,3,1,1,1,24,0,0,False)
