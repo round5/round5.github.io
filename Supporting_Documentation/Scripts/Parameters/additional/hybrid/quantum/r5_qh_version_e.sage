@@ -1,15 +1,5 @@
 load quantum_hybrid.sage
 
-#os.environ['SAGE_LOAD_ATTACH_PATH'] = ':../' # :../parameter_definitions'
-#load_attach_path()
-
-#reset_load_attach_path()
-#load_attach_path('../')
-#load_attach_path('../parameter_definitions/')
-#load_attach_path()
-
-
-
 sage.repl.load.load('r5_parameter_set.py', globals())
 sage.repl.load.load('main_parameter_definitions.py', globals())
 sage.repl.load.load('main_parameter_sets_ee.py', globals())
@@ -61,32 +51,13 @@ def find_r_quantum_improved_optimizer(n, q, h, sigma, secret_structure, bkzmodel
         
         step = int(step / 2)
     
-    print "BEST FOUND PARAMETERS:", n, q, m_opt, h, sigma, secret_structure, bkzmodel, nr_rotations, scaling, 2**(-s_opt), [k_opt], print_results, preci, verbose   
-    print "Results for [bitsec, opt_bs, opt_r, m, round(log(size_S, 2))]"
+    print ("BEST FOUND PARAMETERS:", n, q, m_opt, h, sigma, secret_structure, bkzmodel, nr_rotations, scaling, 2**(-s_opt), [k_opt], print_results, preci, verbose)   
+    print ("Results for [bitsec, opt_bs, opt_r, m, round(log(size_S, 2))]")
     return find_r_quantum_improved(n, q, m_opt, h, sigma, secret_structure, bkzmodel, nr_rotations, scaling, 2**(-s_opt), [k_opt], print_results, preci, verbose)
 
 
-#print("As in Wunderer's thesis: Parameter set V:")
-#out = find_r_quantum_improved(786, 32768, 540, 156, 4.61, secret_structure = 'hweight_trinary', bkzmodel = 'NIST_core_qsieve', #nr_rotations = 1, scaling = True, size_S = 2**(-220), k_vals = [275], print_results = True, preci = 1)
-#print out
-
-##using the optimization function
-#n = 786
-#q = 32768
-#h = 156
-#sigma = 4.61
-#secret_structure = 'hweight_trinary'
-#bkzmodel = 'NIST_core_qsieve'
-#nr_rotations = 1
-#scaling = True
-#print_results = False
-#preci = 1
-#print "Starting computation of uRound_n1_5kem"
-#print find_r_quantum_improved_optimizer(n, q, h, sigma, secret_structure, bkzmodel, nr_rotations, scaling, print_results, #preci, False)
-#print "The above is uRound_n1_5kem"
-
 for paramSet in r5paramSets:
-    print "Starting computation of parameter set " + paramSet.name
+    print ("Starting computation of parameter set " + paramSet.name)
     d = paramSet.d
     q = paramSet.q
     p = paramSet.p
@@ -96,16 +67,15 @@ for paramSet in r5paramSets:
 
     sigma = sqrt(1/12*((q*q)/(p*p) -1 ))
     secret_structure = 'hweight_trinary'
-    #bkzmodel = 'NIST_core_qsieve'
     bkzmodel = 'NIST_core_enum'
     nr_rotations = 1
     scaling = True
     print_results = False
     preci = 1
-    print d, q, p, h, sigma
+    print (d, q, p, h, sigma)
 
-    print find_r_quantum_improved_optimizer(d, q, h, sigma, secret_structure, bkzmodel, nr_rotations, scaling, print_results, preci, verbose)
-    print "The above is " + paramSet.name
+    print (find_r_quantum_improved_optimizer(d, q, h, sigma, secret_structure, bkzmodel, nr_rotations, scaling, print_results, preci, verbose))
+    print ("The above is " + paramSet.name)
 
 
 

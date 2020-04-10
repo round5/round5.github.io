@@ -1,13 +1,21 @@
 Round5 Parameter Summary
 ========================
 
-This folder contains scripts used to obtain security and failure probability estimates.
+This folder contains scripts used to obtain security, failure probability estimates, and certain Round5 parameters.
 
-The main script is in the `main` folder. The script `summarize.py` can be used to summarize **all** parameters proposed as part of the Round5 cryptosystem.  This scriptt includes the functions to obtain security estimates for the `Guessing+Dual` attack.  Open terminal and run:
+The main script is in the `main` folder. The `additional` folder includes some additional scripts.
+
+1. Main Scripts
+==============
+
+
+The script `summarize.py` can be used to summarize the properties of all parameters proposed as part of the Round5 cryptosystem including failure probability estimates as well as primal, dual, hybrid and guessing+dual attacks.  
+
+To obtain this summary, open terminal and executte:
 
 ``  python summarize.py `` 
 
-Note that when running above script, the security estimates for hybrid are still as submitted to the second round. The Round5 team has incorporates a more recent analysis that is located in the `additional` folder. 
+Note that when running above script, the security estimates for hybrid are still as submitted to the second round. The Round5 team has incorporated a more recent analysis that is located in the `additional` folder. 
 
 In total, **18 main parameters** are summarized, along with 3 additional “specific use-case”
 parameters that demonstrate the flexibility of Round5 and applicability to 3
@@ -72,7 +80,7 @@ Main Round5 parameters
 
 * `R5N1_{1,3,5}CCA_0d`:
 
-   Parameters for the non-ring/unstructured variant of IINDCCA-secure Round5 key-encapsulation mechanism and public-key 
+   Parameters for the non-ring/unstructured variant of INDCCA-secure Round5 key-encapsulation mechanism and public-key 
    encrpytion, 
    for NIST security levels 1, 3 and 5. No forward error correction is used,
    hence the `0` at the end of the parameter designator.
@@ -105,3 +113,12 @@ Round5 parameters for specific use-cases
    on the size of the ciphertext. Hence this parameter set, despite enjoying the more conservative
    security assumption based on unstructured lattices, has a bandwidth requirement comparable to
    ring or structured variants.
+   
+2. Additional Scripts
+==============
+
+The `additional` folder includes:
+
+* Subfolder `hybrid` contains scripts to compute estimates for the hybrid attack following Wunderer's methodology.
+* Subfolder `HMAX` contains a script to compute the minimum number of calls to obtain at least `h` different values in `[0,d-1]` with a likelihood at least `1 - 2^kappa`.
+* Subfolder `malformedBcheck` contains a script to compute the thresholds for the Chi2 and binomial tests. These tests are used to check whether exchange parameters B and U are malformed.

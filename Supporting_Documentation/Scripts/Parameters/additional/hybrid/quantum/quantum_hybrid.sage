@@ -81,7 +81,7 @@ def find_r_quantum_improved(n, q, m, h_weight, sigma, secret_structure = 'random
 			
 			if p_NPs_val * pr_ter <= 0:
 				if verbose:
-					print "p_NPs_val or pr_ter is zero"
+					print ("p_NPs_val or pr_ter is zero")
 				bit_hardness_r = 100000000000000000
 			elif bkzmodel == 'sieve':
 				bit_hardness_r = RR(bkzcosts_sieve(dim, blocksize_r) + 1 - log(pr_ter * p_NPs_val, 2))
@@ -106,7 +106,7 @@ def find_r_quantum_improved(n, q, m, h_weight, sigma, secret_structure = 'random
 				opt_pter = pr_ter
 			
 			if print_results == True:
-				print r, time_map[r]
+				print (r, time_map[r])
 		
 #	print "bitsec, opt_bs, opt_r = ", bitsec, opt_bs, opt_r
 	return [bitsec, opt_bs, opt_r, m, round(log(size_S, 2))] #, RR(log(opt_pter,2)), RR(log(opt_pNPs,2))
@@ -123,19 +123,19 @@ def find_opt_qhybrid(n_, q_, h_, secret_, sig_, bkzm_ = 'NIST_core_enum', m_ = [
 		
 		if current_params[0] < best_params[0]:
 			best_params = current_params
-			print "currently best parameters found:"
-			print "bitsec = ",  best_params[0]
-			print "beta = ",  best_params[1]
-			print "r = ",  best_params[2]
-			print "m = ",  best_params[3]
-			print "size_S  = 2^",  best_params[4]
+			print ("currently best parameters found:")
+			print ("bitsec = ",  best_params[0])
+			print ("beta = ",  best_params[1])
+			print ("r = ",  best_params[2])
+			print ("m = ",  best_params[3])
+			print ("size_S  = 2^",  best_params[4])
 		
-	print "best parameters found:"
-	print "bitsec = ",  best_params[0]
-	print "beta = ",  best_params[1]
-	print "r = ",  best_params[2]
-	print "m = ",  best_params[3]
-	print "size_S  = 2^",  best_params[4]
+	print ("best parameters found:")
+	print ("bitsec = ",  best_params[0])
+	print ("beta = ",  best_params[1])
+	print ("r = ",  best_params[2])
+	print ("m = ",  best_params[3])
+	print ("size_S  = 2^",  best_params[4])
 	
 	return best_params
 		

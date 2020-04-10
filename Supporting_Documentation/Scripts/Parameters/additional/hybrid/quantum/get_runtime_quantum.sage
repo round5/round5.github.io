@@ -70,7 +70,7 @@ def get_prob_NP(k, r_val, g=None):
 	val = c_k * (g.subs(y = -r_val) - g.subs(y=-1))
 	val = CC(val)
 	if abs(val.imag_part()) > complex_bound:
-		print "error: ", val
+		print ("error: ", val)
 		return -1
 	return RR(val.real_part())
 	
@@ -121,7 +121,7 @@ def get_prob(k, r_val, g=None):
 		val = h.subs(r_var=r_val)
 	val = CC(val)
 	if abs(val.imag_part()) > complex_bound:
-		print "error: ", val
+		print ("error: ", val)
 		return -1
 	return RR(val.real_part())
 	
@@ -170,12 +170,12 @@ def getB_q_ary_new(delta,det,dim,q):
 #	print "k = ", k
 	x=log(det,q)-k/2
 	if x<0:
-		print "error"
+		print ("error")
 		return 0
 	if x+k>dim:
 		return getB_q_ary(delta,det,dim,q)
 	if k<(dim-log(det,q)):
-		print "k too small in getB_q_ary"
+		print ("k too small in getB_q_ary")
 	
 	for i in range(dim-k):
 		b.append(q)
@@ -205,7 +205,7 @@ def getB_q_ary(delta,det,dim,q):
 #	print "k = ", k
 	det_new = q**(k-(dim-log(det,q)))
 	if k<(dim-log(det,q)):
-		print "k too small in getB_q_ary"
+		print ("k too small in getB_q_ary")
 	
 	for i in range(dim-k):
 		b.append(q)

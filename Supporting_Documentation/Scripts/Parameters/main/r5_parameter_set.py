@@ -319,7 +319,7 @@ class R5_paramSet(object):
     # this function either loads from a file or computes a parameter set.
     def get(self, path = '.ouf/default/results/'):
 
-        print path
+        print( path)
         if not (os.path.exists(path)):
             try:
                 os.makedirs(path)
@@ -329,7 +329,7 @@ class R5_paramSet(object):
         total_path = path + str(self.name)
         
         if os.path.isfile( total_path ):
-            print "---- Reading analysis for %s" % self.name
+            print( "---- Reading analysis for %s" % self.name)
             f = open(total_path,"r")
             for svp_oracle in svp_oracles:
                 oracleName = svp_oracle.__name__
@@ -357,7 +357,7 @@ class R5_paramSet(object):
             self = pickle.load(f)
             f.close()
         else:
-            print "---- Running analysis for %s" % self.name
+            print( "---- Running analysis for %s" % self.name)
             f = open(total_path,"w")
             self.analyze()
             
@@ -399,7 +399,7 @@ class R5_paramSet(object):
         total_path = path + str(self.name)
         
         if os.path.isfile( total_path ):
-            print "---- Reading analysis for %s" % self.name
+            print( "---- Reading analysis for %s" % self.name)
             f = open(total_path,"r")
             for svp_oracle in svp_oracles:
                 oracleName = svp_oracle.__name__
@@ -428,7 +428,7 @@ class R5_paramSet(object):
 
             f.close()
         
-            print "---- Running analysis for %s" % self.name
+            print( "---- Running analysis for %s" % self.name)
             f = open(total_path,"w")
             self.analyze_with_constrains(16, -300, 0, False)
             
@@ -471,7 +471,7 @@ class R5_paramSet(object):
 
         reloaded_path = path + "hybrid_reloaded/" + str(self.name)
 
-        print "---- Storing for %s" % self.name
+        print( "---- Storing for %s" % self.name)
         f = open(reloaded_path,"w")
 
         for svp_oracle in svp_oracles:
@@ -543,7 +543,7 @@ class R5_paramSet(object):
         res += " guess+dual:"
         res += str(self.guess_dual['svp_classical_core_sieving']['cost'])
         #res += "\n"
-        print res
+        print( res)
         return res
     
     

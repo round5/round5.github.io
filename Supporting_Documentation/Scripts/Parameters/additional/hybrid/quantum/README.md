@@ -1,9 +1,6 @@
-The files:
+Scripts to obtain hybrid security estimates based on Wunderer's methodology.
 
-`analysis.py`
-`r5_parameter_set.py`
-`chosen_parameter_sets.py`
-`main_parameter_definitions.py`
-`main_parameter_sets_ee.py`
+To run, execute: `sage r5_qh_version_e.sage`
 
-are a copy of the files in the parent directory.
+These scripts require an old version of Sage, e.g., Sage 7.4, relying on Python 2.x.
+

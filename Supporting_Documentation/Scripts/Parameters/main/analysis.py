@@ -156,7 +156,7 @@ def binomial(x, y):
 def build_sparse_ternary_law(sparseness):
     # Sanity check. sparseness should be a fraction
     if sparseness>=1.:
-        print "build_sparse_ternary_law() received a sparseness parameter >= 1. Abort."
+        print( "build_sparse_ternary_law() received a sparseness parameter >= 1. Abort.")
         exit()
     D = {}
     domain=[-1,0,1]
@@ -433,7 +433,7 @@ def optimize_primalattack_ct(q,p,t,d,h,mu,
         b_step = (b_max - b_min) >> 4
     if b_step < 1:
         b_step = 1
-    print "\n\nAttacking u:",attack_u,"\nattack v:",attack_v,"\nb_min:",b_min,"\tb_max:",b_max,"\tb_step:",b_step,"\nmax_m:",max_m,"\n"
+    print( "\n\nAttacking u:",attack_u,"\nattack v:",attack_v,"\nb_min:",b_min,"\tb_max:",b_max,"\tb_step:",b_step,"\nmax_m:",max_m,"\n")
 
     while b_step >= 1:
         for b in range(b_min, b_max + b_step, b_step):
@@ -457,7 +457,7 @@ def optimize_primalattack_ct(q,p,t,d,h,mu,
                 for m in range(ms_min, ms_max + m_step, m_step):
 
                     if attack_u:
-		        attack_cost = primalcost_ct(b,q,p,t,d,h,m,mu,B,
+                        attack_cost = primalcost_ct(b,q,p,t,d,h,m,mu,B,
                                                     ring,
                                                     svp_cost_model)
                     else:
@@ -561,7 +561,7 @@ def dualcost(b,q,p,n,m,theta,is_hnf,is_binary,is_ternary,is_sparsehnf,is_spbinar
     security_gap=0.0    #Default value
     #Sanity check. Currently, no efficient reductions to DECISION Ring-LWR are known.
     if((use_lwr_reduction==1) and (ring!=0)):
-        print "Error.Cannot calculate Ring-LWE advantage based on Ring-LWR advantage. No efficient reductions for Decision-RLWR known. Abort!"
+        print( "Error.Cannot calculate Ring-LWE advantage based on Ring-LWR advantage. No efficient reductions for Decision-RLWR known. Abort!")
         exit()
     elif((use_lwr_reduction==1) and (ring==0)):
         #print "Calculating cost of solving Search-LWE by reducing to Decision-LWR."
@@ -655,7 +655,7 @@ def hybrid_attack_cost_r_nist(q,p,n,max_m,secretkey_law_param,ring,is_hnf,is_bin
 # For a given lattice instance, optimize over BKZ blocksize b and number of (R)LWR samples m to get the minimal primal or dual attack cost.
 def optimizeattack_b_m(q,p,n,max_m,theta,is_hnf,is_binary,is_ternary,is_sparsehnf,is_spbinary,is_spternary,attack_type,ring,use_lwr_reduction,fastsearch,svp_cost_model):
     if (attack_type != 1) and (attack_type != 2):
-        print "Unknown optimizeattack_b_m() attack_type = ", attack_type
+        print( "Unknown optimizeattack_b_m() attack_type = ", attack_type)
         exit()
 
     best_cost=log_infinity    #Initialize optimal attack cost to infinity.

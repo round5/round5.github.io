@@ -53,13 +53,13 @@ def find_r_LWE_enum(n, m, q, sigma, bkzmodel = 'enum', k_vals = [6], min_delta =
 			
 		
 		time_map[r] = (delta_r, bit_hardness_r)
-		print r, time_map[r]
+		print (r, time_map[r])
 		if bit_hardness_r < bitsec:
 			bitsec = bit_hardness_r
 			opt_r = r
 			opt_bs = blocksize_r
 			
-	print "bitsec, opt_r, opt_bs = ", bitsec, opt_r, opt_bs
+	print ("bitsec, opt_r, opt_bs = ", bitsec, opt_r, opt_bs)
 	
 	
 	return [bitsec, opt_r, opt_bs]
